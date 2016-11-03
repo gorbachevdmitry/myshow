@@ -1,0 +1,283 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    {% load staticfiles %}
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap core CSS -->
+   <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Material Design Bootstrap -->
+    <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Bad+Script|Pattaya|Neucha|Ruslan+Display|Roboto" >
+    <style>
+
+
+
+    </style>
+
+
+
+
+</head>
+
+<body class="fixed-sn purple-skin">
+
+    <!--Double navigation-->
+    <header>
+    <!-- Sidebar navigation -->
+    <ul id="slide-out" class="side-nav fixed custom-scrollbar">
+
+        <!-- Logo -->
+        <li>
+            <div class="logo-wrapper waves-light sn-avatar-wrapper">
+                <a href="#">
+                    <img src="http://mdbootstrap.com/images/avatars/img%20(8)" class="img-circle">
+                </a>
+            </div>
+        </li>
+        <!--/. Logo -->
+
+        <!--About-->
+        <li>
+            <div class="about">
+                <p>Quae ad, vel pariatur non voluptates nam quaerat.</p>
+            </div>
+        </li>
+        <!--/.About-->
+
+        <!--Social-->
+        <li>
+            <ul class="social">
+                <li><a href="https://twitter.com/MDBootstrap" target="_blank" class="icons-sm tw-ic"><i class="fa fa-twitter"> </i></a></li>
+                <li><a href="https://www.facebook.com/mdbootstrap" target="_blank" class="icons-sm fb-ic"><i class="fa fa-facebook"> </i></a></li>
+                <li><a href="https://dribbble.com/mdbootstrap" target="_blank" class="icons-sm drib-ic"><i class="fa fa-dribbble"> </i></a></li>
+                <li><a href="https://www.linkedin.com/in/michal-szymanski-9228918a" target="_blank" class="icons-sm li-ic"><i class="fa fa-linkedin"> </i></a></li>
+                <li><a href="https://www.instagram.com/material_design_for_bootstrap/" target="_blank" class="icons-sm ins-ic"><i class="fa fa-instagram"> </i></a></li>
+            </ul>
+        </li>
+        <!--/Social-->
+
+        <!-- Side navigation links -->
+        <li>
+            <ul class="collapsible collapsible-accordion">
+                <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-bus"></i> Категории<i class="fa fa-angle-down rotate-icon"></i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                         <li class="nav-item" >
+                <a class="nav-link" href="{% url "shop:product_list" %}">Все посты</a>
+            </li>
+                             {% for c in categories %}
+        <li class="nav-item" >
+          <a class="nav-link" href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+        </li>
+      {% endfor %}
+                        </ul>
+                    </div>
+                </li>
+                <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-camera"></i> Photography<i class="fa fa-angle-down rotate-icon"></i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a href="#" class="waves-effect">Travel pictures</a>
+                            </li>
+                            <li><a href="#" class="waves-effect">The best shots</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-forward"></i> Videos<i class="fa fa-angle-down rotate-icon"></i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a href="#" class="waves-effect">Short videos</a>
+                            </li>
+                            <li><a href="#" class="waves-effect">Editing tutorials</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-paw"></i> Environment<i class="fa fa-angle-down rotate-icon"></i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a href="#" class="waves-effect">How to protect?</a>
+                            </li>
+                            <li><a href="#" class="waves-effect">'Plant a tree' action</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-user"></i> About<i class="fa fa-angle-down rotate-icon"></i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a href="#" class="waves-effect">Blog's author</a>
+                            </li>
+                            <li><a href="#" class="waves-effect">Our crew</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-envelope"></i> Contact us<i class="fa fa-angle-down rotate-icon"></i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a href="#" class="waves-effect">FAQ</a>
+                            </li>
+                            <li><a href="#" class="waves-effect">Write a message</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <!--/. Side navigation links -->
+
+    </ul>
+    <!--/. Sidebar navigation -->
+
+    <!--Navbar-->
+    <nav class="navbar navbar-fixed-top scrolling-navbar double-nav">
+
+        <!-- SideNav slide-out button -->
+        <div class="pull-left">
+            <a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars"></i></a>
+        </div>
+
+        <!-- Breadcrumb-->
+        <div class="breadcrumb-dn">
+            <p></p>
+        </div>
+
+
+        <ul class="nav navbar-nav pull-right">
+        {% get_current_language as LANGUAGE_CODE %}
+  {% get_available_languages as LANGUAGES %}
+  {% get_language_info_list for LANGUAGES as languages %}
+          {% for language in languages %}
+        <li class="nav-item">
+          <a class="nav-link" href="/{{ language.code }}/" {% if language.code == LANGUAGE_CODE %} class="selected"{% endif %}>
+            {{ language.name_local }}
+          </a>
+        </li>
+      {% endfor %}
+        <li class="nav-item" >
+
+                <a class="nav-link" href="{% url "shop:product_list" %}">Все посты</a>
+            </li>
+
+
+                    {% for c in categories %}
+        <li class="nav-item" >
+          <a class="nav-link" href="{{ c.get_absolute_url }}"><span class="hidden-sm-down">{{ c.name }}</span></a>
+        </li>
+      {% endfor %}
+
+
+            <li class="nav-item ">
+                <a class="nav-link"><i class="fa fa-envelope"></i> <span class="hidden-sm-down">Contact</span></a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> <span class="hidden-sm-down">Projects</span></a>
+                <div class="dropdown-menu dropdown-primary dd-right" aria-labelledby="dropdownMenu1" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                    <a class="dropdown-item" href="#">Logout</a>
+                    <a class="dropdown-item" href="#">My account</a>
+                </div>
+            </li>
+        </ul>
+
+    </nav>
+    <!--/.Navbar-->
+    </header>
+    <!--/Double navigation-->
+
+    <!--Main layout-->
+    <main>
+     {% block content %}
+     {% endblock %}
+    </main>
+    <!--/Main layout-->
+    <!--Footer-->
+    <footer class="page-footer center-on-small-only">
+
+        <!--Footer Links-->
+        <div class="container-fluid">
+            <div class="row">
+
+
+        <!--/.Call to action-->
+
+
+
+        <!--Social buttons-->
+        <div class="social-section">
+            <ul>
+                <li><a href="" target="_blank" class="btn-floating btn-small btn-fb"><i class="fa fa-facebook"> </i></a></li>
+                <li><a href="" target="_blank" class="btn-floating btn-small btn-tw"><i class="fa fa-twitter"> </i></a></li>
+                <li><a href="" target="_blank" class="btn-floating btn-small btn-gplus"><i class="fa fa-google-plus"> </i></a></li>
+                <li><a href="" target="_blank" class="btn-floating btn-small btn-li"><i class="fa fa-linkedin"> </i></a></li>
+
+                <li><a href="" target="_blank" class="btn-floating btn-small btn-pin"><i class="fa fa-pinterest"> </i></a></li>
+
+            </ul>
+        </div>
+        <!--/.Social buttons-->
+
+        <!--Copyright-->
+        <div class="footer-copyright">
+            <div class="container-fluid">
+                © 2015 Copyright: <a href="">DmitryGorbachev.com </a>
+
+            </div>
+        </div>
+  </div>      <!--/.Copyright-->
+</div>
+    </footer>
+    <!--/.Footer-->
+
+
+    <!-- SCRIPTS -->
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="{% static 'js/jquery-2.2.3.min.js' %}"></script>
+
+    <!-- Tooltips -->
+    <script type="text/javascript" src="{% static 'js/tether.min.js' %}"></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+
+    <script>
+        // SideNav init
+        $(".button-collapse").sideNav();
+        var el = document.querySelector('.custom-scrollbar');
+        Ps.initialize(el);
+    </script>
+
+    <script>
+        new WOW().init();
+    </script>
+<script>
+
+
+</script>
+
+
+</body>
+
+</html>

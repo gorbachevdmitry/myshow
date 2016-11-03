@@ -1,0 +1,111 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% load i18n %}
+{% block title %}
+    {{ product.name }}
+{% endblock %}
+
+{% block content %}
+
+
+<!--Card-->
+<div class="card testimonial-card">
+
+    <!--Bacground color-->
+    <div  class="card-up default-color-dark">
+    </div>
+
+
+
+<!--Section: Blog v.3-->
+    <div class="container">
+           <!--Section: About author-->
+                    <section class="mb-4">
+                        <!--Author box-->
+                        <div class="author-box wow fadeInUp" data-wow-delay="0.3s">
+
+                            <div class="row">
+                                <!--Name-->
+                                <h3 class="h3-responsive text-xs-center">About author</h3>
+                                <hr>
+
+                                <!--Avatar-->
+                                <div class="col-sm-2 col-xs-12">
+                                    <img src="{% static 'img/myphotos/bestavat.JPG' %}" class="img-fluid rounded-circle z-depth-2">
+                                </div>
+
+                                <!--Author Data-->
+                                <div class=" col-xs-12 col-sm-10">
+
+                                    <p><strong>Dmitry Gorbachev</strong></p>
+
+                                    <div class="personal-sm">
+                                        <a class="email-ic"><i class="fa fa-home"> </i></a>
+                                        <a href="https://www.facebook.com/mdbootstrap" target="_blank" class="fb-ic"><i class="fa fa-facebook"> </i></a>
+                                        <a href="https://twitter.com/MDBootstrap" target="_blank" class="tw-ic"><i class="fa fa-twitter"> </i></a>
+                                        <a href="https://plus.google.com/u/0/+Mdbootstrap" target="_blank" class="gplus-ic"><i class="fa fa-google-plus"> </i></a>
+                                        <a href="https://www.linkedin.com/in/michal-szymanski-9228918a" target="_blank" class="li-ic"><i class="fa fa-linkedin"> </i></a>
+                                        <a class="email-ic"><i class="fa fa-envelope-o"> </i></a>
+                                    </div>
+                                    <div id="webtext">
+                                    <p >Full Stack Web developer , scills= Python, Django,Posgres,AWS amason, Jquery, HTML, CSS, MDBBootstrap, GIT... </p>
+                                        </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--/.Author box-->
+                    </section>
+                    <!--/Section: About author-->
+<section class="section extra-margins">
+
+    <!--Section heading-->
+    <h1 class="section-heading"></h1>
+    <!--Section sescription-->
+    <p class="section-description"></p>
+
+    <!--First row-->
+    <div class="row">
+
+        <!--First column-->
+        <div class="col-md-5 mb-r">
+            <!--Featured image-->
+            <div class="view overlay hm-white-slight">
+                <img src="{{ product.image.url }}">
+                <a>
+                    <div class="mask"></div>
+                </a>
+            </div>
+        </div>
+        <!--/First column-->
+
+        <!--Second column-->
+        <div class="col-md-7 mb-r">
+            <!--Excerpt-->
+            <a href="{{ product.category.get_absolute_url }}" class="pink-text"><h5><i class="fa fa-heart"></i>{{ product.category }}</h5></a>
+            <h4>{{ product.name }}</h4>
+            <p>{{ product.body }}</p>
+            <div class="chip">
+    <img src="{% static 'img/myphotos/bestavat.JPG' %}"  alt="Contact Person">
+
+
+        <small class="text-muted"><em> by Dmitry {{ product.publish }}</em></small>
+</div>
+
+            <a class="btn btn-primary">Read more</a>
+        </div>
+        <!--/Second column-->
+
+    </div>
+    <!--/First row-->
+    <hr>
+
+</section>
+<!--/Section: Blog v.3-->
+</div>
+
+</div>
+<!--/.Card-->
+
+
+{% endblock %}

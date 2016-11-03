@@ -1,0 +1,103 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load embed_video_tags %}
+{% block title %}My Blog{% endblock %}
+
+{% block content %}
+{% for product in products %}
+    <div class="row">
+
+<div class="col-md-4">
+    <div id="speed" class="animated zoomInLeft">
+<!--Card-->
+<div class="card card-cascade narrower">
+
+    <!--Card image-->
+    <div class="view overlay hm-white-slight">
+        <img src="{{ product.image_dog.url }}" class="img-fluid" alt="{{ post.alt_image }}">
+        <a>
+            <div class="mask">ddddd</div>
+        </a>
+    </div>
+    <!--/.Card image-->
+
+    <!--Card content-->
+    <div class="card-block text-xs-center">
+        <!--Category & Title-->
+        <h4><a href="{{ product.get_absolute_url }}">Мысли Великих</a></h4>
+        <!--Description-->
+        <p id="textfont" class="card-text">{{ product.citata }}</p>
+    <!--/.Card content-->
+</div>
+</div>
+
+
+</div>
+</div>
+    <div class="col-md-4">
+
+<div class="example z-depth-4">
+
+<div class="animated flipInY">
+    <div class="embed-responsive embed-responsive-16by9">
+    {% video product.video 'small' %}
+        </div>
+
+
+<!--Panel-->
+<div class="card card-block">
+    <h4><a href="{{ product.get_absolute_url }}">Анекдот дня</a></h4>
+    <p id = "textfont1" >{{ product.anecdot }}</p>
+
+    <a href="#" class="card-link"></a>
+    <a href="#" class="card-link"></a>
+</div>
+    </div>
+    </div>
+<!--/.Panel-->
+
+    </div>
+<!--/.Card-->
+    <div class="col-md-4">
+    <!--Card-->
+    <div id="speed" class="animated zoomInRight">
+<div class="card card-cascade  narrower">
+
+    <!--Card image-->
+    <div class="view overlay hm-white-slight">
+        <img src="{{ product.image.url }}" class="img-fluid" alt="{{ product.alt_image_dog }}">
+        <a>
+            <div class="mask"></div>
+        </a>
+    </div>
+    <!--/.Card image-->
+
+    <!--Card content-->
+    <div class="card-block text-xs-center">
+        <h4>{% if category %}{{ category.name }}{% else %}Суперпост{% endif %}</h4>
+        <!--Category & Title-->
+        <h4><mark><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></mark></h4>
+
+         <p id ="text"> {{ product.body|truncatewords_html:15 }}</p>
+        <!--Description-->
+
+<div class="chip">
+    <img src="{% static 'img/myphotos/supeavata.JPG' %}"  alt="Contact Person">
+
+
+        <small class="text-muted"><em> by Dmitry {{ product.publish }}</em></small>
+</div>
+
+
+
+    <!--/.Card content-->
+</div>
+</div>
+
+
+</div>
+    </div>
+    </div>
+{% endfor%}
+{% endblock %}
