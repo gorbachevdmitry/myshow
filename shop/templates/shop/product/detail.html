@@ -26,7 +26,7 @@
 
                             <div class="row">
                                 <!--Name-->
-                                <h3 class="h3-responsive text-xs-center">About author</h3>
+                                <h3 class="h3-responsive text-xs-center">{% trans "About author" %}</h3>
                                 <hr>
 
                                 <!--Avatar-->
@@ -37,7 +37,7 @@
                                 <!--Author Data-->
                                 <div class=" col-xs-12 col-sm-10">
 
-                                    <p><strong>Dmitry Gorbachev</strong></p>
+                                    <p><strong>{% trans "Dmitry Gorbachev" %}</strong></p>
 
                                     <div class="personal-sm">
                                         <a class="email-ic"><i class="fa fa-home"> </i></a>
@@ -48,7 +48,7 @@
                                         <a class="email-ic"><i class="fa fa-envelope-o"> </i></a>
                                     </div>
                                     <div id="webtext">
-                                    <p >Full Stack Web developer , scills= Python, Django,Posgres,AWS amason, Jquery, HTML, CSS, MDBBootstrap, GIT... </p>
+                                    <p >{% trans "Full Stack Web developer , scills= Python, Django,Posgres,AWS amason, Jquery, HTML, CSS, MDBBootstrap, GIT..." %}</p>
                                         </div>
                                 </div>
 
@@ -89,10 +89,10 @@
     <img src="{% static 'img/myphotos/bestavat.JPG' %}"  alt="Contact Person">
 
 
-        <small class="text-muted"><em> by Dmitry {{ product.publish }}</em></small>
+        <small class="text-muted"><em> {% trans "by Dmitry" %} {{ product.publish }}</em></small>
 </div>
 
-            <a class="btn btn-primary">Read more</a>
+
         </div>
         <!--/Second column-->
 

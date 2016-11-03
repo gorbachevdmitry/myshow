@@ -76,11 +76,22 @@
         <!-- Side navigation links -->
         <li>
             <ul class="collapsible collapsible-accordion">
-                <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-bus"></i> Категории<i class="fa fa-angle-down rotate-icon"></i></a>
+
+            {% get_current_language as LANGUAGE_CODE %}
+  {% get_available_languages as LANGUAGES %}
+  {% get_language_info_list for LANGUAGES as languages %}
+          {% for language in languages %}
+        <li >
+          <a class="collapsible-header waves-effect arrow-r" href="/{{ language.code }}/" {% if language.code == LANGUAGE_CODE %} class="selected"{% endif %}>
+            {{ language.name_local }}
+          </a>
+        </li>
+      {% endfor %}
+                <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-bus"></i> {% trans "Categories" %}<i class="fa fa-angle-down rotate-icon"></i></a>
                     <div class="collapsible-body">
                         <ul>
                          <li class="nav-item" >
-                <a class="nav-link" href="{% url "shop:product_list" %}">Все посты</a>
+                <a class="nav-link" href="{% url "shop:product_list" %}">{% trans "All posts" %}</a>
             </li>
                              {% for c in categories %}
         <li class="nav-item" >
@@ -159,22 +170,24 @@
         <div class="breadcrumb-dn">
             <p></p>
         </div>
-
-
-        <ul class="nav navbar-nav pull-right">
+         <ul class="nav navbar-nav pull-left">
         {% get_current_language as LANGUAGE_CODE %}
   {% get_available_languages as LANGUAGES %}
   {% get_language_info_list for LANGUAGES as languages %}
           {% for language in languages %}
         <li class="nav-item">
-          <a class="nav-link" href="/{{ language.code }}/" {% if language.code == LANGUAGE_CODE %} class="selected"{% endif %}>
-            {{ language.name_local }}
+          <a class="nav-link" href="/{{ language.code }}/" {% if language.code == LANGUAGE_CODE %} class="selected"{% endif %}><span class="hidden-sm-down">
+            {{ language.name_local }}</span>
           </a>
         </li>
       {% endfor %}
+         </ul>
+
+        <ul class="nav navbar-nav pull-right">
+
         <li class="nav-item" >
 
-                <a class="nav-link" href="{% url "shop:product_list" %}">Все посты</a>
+                <a class="nav-link" href="{% url "shop:product_list" %}">{% trans "All posts" %}</a>
             </li>
 
 
@@ -185,9 +198,7 @@
       {% endfor %}
 
 
-            <li class="nav-item ">
-                <a class="nav-link"><i class="fa fa-envelope"></i> <span class="hidden-sm-down">Contact</span></a>
-            </li>
+
 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> <span class="hidden-sm-down">Projects</span></a>

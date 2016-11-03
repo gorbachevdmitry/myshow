@@ -10,7 +10,7 @@ from embed_video.fields import EmbedVideoField
 class Category(TranslatableModel):
     translations = TranslatedFields(
         name = models.CharField(max_length=200, db_index=True),
-        slug = models.SlugField(max_length=200, db_index=True, unique=True)
+        slug = models.SlugField(max_length=200, db_index=True, unique_for_date='publish')
     )
 
     class Meta:
